@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'dependencies/dependency_init.dart';
+import 'routes/app_routes.dart';
 
 void main() {
-  runApp(const MainApp());
+  configureDependencies();
+  runApp(MainApp());
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppRoute.initialRoute,
+      onGenerateRoute: AppRouteGenerator.generateRoute,
     );
   }
 }
